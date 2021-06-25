@@ -1,0 +1,26 @@
+{ 
+    "compilerOptions":{
+        "esModuleInterop": true, // true로 설정할 경우 import * as React from 'react' 구문에서  import React from 'react' 구문으로 변경 가능
+        "sourceMap": true, // 에러 발생시 에러 발생 지점을 로그로 출력해줌
+        "lib": ["ES2020","DOM"], // javascript 버전을 ES2020으로 지정
+        "jsx": "react",
+        "module": "esnext", // 버전 지정
+        "moduleResolution": "node", // 노드가 해석할 수 있게 변환
+        "target": "es5", // 상단 lib에서 설정한 버전을 해당 버전으로 변환하겠다는 설정 
+        "strict": true, // 타입 체크를 엄격하게 체크 하겠다 (타입스크립트를 사용하는 이유)
+        "resolveJsonModule": true, // import json파일을 허용한다
+        "baseUrl": ".",
+        "paths": { //import A from ../../../ 을 import A from @hooks/A 변환 가능
+            "@hooks/*" : ["hooks/*"],
+            "@components/*" : ["components/*"],
+            "@layouts/*":["layouts/*"],
+            "@pages/*":["pages/*"],
+            "@utils/*":["utils/*"],
+            "@typings/*":["typings/*"],
+            "@styles/*":["styles/*"]
+        }
+    }
+}
+// 바벨을 사용하는 이유 : image, css, html 등을 자바스크립트로 할 수 있게 도와준다
+// typescript -> babel -> javascript 로 변환이 됨
+// typescript -> javascript로 직접 변환도 되지만 상단 이유로 중간에 babel을 삽입한다
