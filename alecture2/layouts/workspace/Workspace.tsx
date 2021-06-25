@@ -3,6 +3,9 @@ import axios from 'axios';
 import React, { useCallback,FC } from 'react';
 import { Redirect } from 'react-router';
 import useSWR, { mutate } from 'swr';
+import '@styles/workspace.scss';
+import gravatar from 'gravatar';
+
 const Workspace : FC = ({children}) =>{  // children을 사용하면 FC타입 아니면 VFC타입을 사용
 
     const {data,error,revalidate,mutate} = useSWR('http://localhost:4005/api/users',fetcher);
@@ -32,7 +35,22 @@ const Workspace : FC = ({children}) =>{  // children을 사용하면 FC타입 �
 
     return(
         <div>
-            <button onClick={onLogout}>로그아웃</button>
+            <div className="header">
+                <div className="rightMenu">
+                    <span>
+                        <img className='profileImg' src={gravatar.url(data.email,{s:'28px',d:'retro'})}alt={data.nickname}/>
+                    </span>
+                </div>
+            </div>
+                <button onClick={onLogout}>로그아웃</button>
+            <div className='workspaceWrapper'>
+                <div className='workspaces'>test</div>
+                <nav className='channels'>
+                    <div className='workspaceName'>Sleact</div>
+                    <div className='menuScroll'>menu Scroll</div>
+                </nav>
+                <div className='chats'>chats</div>
+            </div>
             {children}
         </div>
     )

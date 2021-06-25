@@ -1,5 +1,7 @@
- import Workspace from '@layouts/Workspace';
+import Workspace from '@layouts/workspace/Workspace';
 import React from 'react';
+
+import '@styles/workspace.scss';
 
  const Channel = () =>{
     

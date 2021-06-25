@@ -2,6 +2,11 @@
     float:'right';
 }
 
+.menuScroll{
+  height: calc(100vh - 102px);
+  overflow-y: auto;
+}
+
 .header{
     height: 38px;
     background-color: #350d36;
@@ -11,7 +16,7 @@
     text-align:center;
 }
 
-.img{
+.profileImg{
     width:28px;
     height:28px;
     position:absolute;
@@ -165,7 +170,57 @@
 .chats{
     flex:1;
 }
+.channels{
+  width: 260px;
+  display: inline-flex;
+  flex-direction: column;
+  background: #3f0e40;
+  color: rgb(188, 171, 188);
+  vertical-align: top;
 
+  & a {
+    padding-left: 36px;
+    color: inherit;
+    text-decoration: none;
+    height: 28px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+
+    &.selected {
+      color: white;
+    }
+  }
+
+  & .bold {
+    color: white;
+    font-weight: bold;
+  }
+
+  & .count {
+    margin-left: auto;
+    background: #cd2553;
+    border-radius: 16px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    height: 18px;
+    line-height: 18px;
+    padding: 0 9px;
+    color: white;
+    margin-right: 16px;
+  }
+
+  & h2 {
+    height: 36px;
+    line-height: 36px;
+    margin: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 15px;
+  }  
+}
 .addButton{
     color: white;
     font-size: 24px;
