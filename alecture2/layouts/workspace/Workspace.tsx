@@ -1,11 +1,15 @@
 import fetcher from '@utils/fetcher';
 import axios from 'axios';
 import React, { useCallback,FC } from 'react';
-import { Redirect } from 'react-router';
+import { Redirect,Switch,Route } from 'react-router';
 import useSWR, { mutate } from 'swr';
 import '@styles/workspace.scss';
 import gravatar from 'gravatar';
+import loadable from '@loadable/component';
 
+
+const Channel = loadable(()=>import('@pages/channel/Channel'));
+const DirectMessage = loadable(()=>import('@pages/directMessage/DirectMessge'));
 const Workspace : FC = ({children}) =>{  // children을 사용하면 FC타입 아니면 VFC타입을 사용
 
     const {data,error,revalidate,mutate} = useSWR('http://localhost:4005/api/users',fetcher);
@@ -49,9 +53,14 @@ const Workspace : FC = ({children}) =>{  // children을 사용하면 FC타입 �
                     <div className='workspaceName'>Sleact</div>
                     <div className='menuScroll'>menu Scroll</div>
                 </nav>
-                <div className='chats'>chats</div>
+                <div className='chats'>
+                    <Switch>
+                        <Redirect exact path="/workspace" to="/workspace/channel" />
+                        <Route path="/workspace/channel" component={Channel} />
+                        <Route path="/workspace/dm" component={DirectMessage} />
+                    </Switch>
+                </div>
             </div>
-            {children}
         </div>
     )
 

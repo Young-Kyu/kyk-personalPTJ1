@@ -1,16 +1,13 @@
-import Workspace from '@layouts/workspace/Workspace';
 import React from 'react';
 
-import '@styles/workspace.scss';
-
- const Channel = () =>{
+const Channel = () =>{
     
     return(
-        <Workspace>
+        <div>
             <div>
-                로그인 환영
+                
             </div>
-        </Workspace>
+        </div>
     )
 
  }
