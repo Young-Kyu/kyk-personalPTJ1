@@ -1,11 +1,11 @@
-import React from 'react';
+import React,{useRef} from 'react';
 
 const Channel = () =>{
     
     return(
-        <div>
-            <div>
-                
+        <div className='container'>
+            <div className='header'>
+                c채널!
             </div>
         </div>
     )

@@ -25,7 +25,6 @@ const LogIn = () =>{
                 }
             )
             .then(res =>{
-                console.log(res);
                 // revalidate(); // success시 바로 useSWR을 실행시켜주는 함수 
                 // 단점 : api 호출을 한번 더 해야한다.
                 // revalidate / mutate 차이
